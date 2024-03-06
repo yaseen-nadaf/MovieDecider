@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
 
-    val movieList = mutableListOf("Action", "Thriller", "Romance", "Horror", "Science Fiction", "Crime")
+    private val movieList = mutableListOf("Action", "Thriller", "Romance", "Horror", "Science Fiction", "Crime")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
             val random = Random()
             val randomMovie = random.nextInt(movieList.size)
             binding.selectedMovieText.text = movieList[randomMovie]
-            println("${movieList[randomMovie]}")
+            println(movieList[randomMovie])
         }
 
         binding.addMovieBtn.setOnClickListener {
             var inputText = binding.newMovieTypeInput.text.toString()
-            inputText = inputText.uppercase()
+            inputText = inputText.replaceFirstChar { it.uppercase() }
             movieList.add(inputText)
             binding.newMovieTypeInput.text.clear()
             println(movieList)
