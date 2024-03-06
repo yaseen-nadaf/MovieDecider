@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.decideBtn.setOnClickListener {
             val random = Random()
-            val randomMovie = random.nextInt(movieList.count())
+            val randomMovie = random.nextInt(movieList.size)
             binding.selectedMovieText.text = movieList[randomMovie]
             println("${movieList[randomMovie]}")
         }
